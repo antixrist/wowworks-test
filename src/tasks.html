@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0033)http://taskmate.ru/ui/tasks.html# -->
+<html xmlns="http://www.w3.org/1999/xhtml"><script id="tinyhippos-injected">if (window.top.ripple) { window.top.ripple("bootstrap").inject(window, document); }</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<title>Concept. Tasks</title>
+	<script src="static/scripts/jquery-2.1.4.min.js" type="text/javascript"></script><style type="text/css"></style>
+	<link href="static/styles/bootstrap.css" rel="stylesheet" type="text/css">
+	<!-- reset css <link href="css/reset.css" rel="stylesheet" type="text/css" /> -->
+	<link href="static/styles/wowworks.css" rel="stylesheet" type="text/css">
+	<link rel="shortcut icon" href="http://taskmate.ru/ui/favicon.ico" type="image/x-icon">
+	<script src="static/scripts/jquery.qtip.min.js" type="text/javascript"></script>
+	<link href="static/styles/jquery.qtip.min.css" rel="stylesheet" type="text/css">
+	<script src="static/scripts/jquery.peity.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$(function() {
+			$("span.pie").peity("pie")
+			$('.donut').peity('donut')
+			$(".line").peity("line")
+			$(".bar").peity("bar")
+
+			var updatingChart = $(".updating-chart").peity("line", { width: 60,height: 10 })
+
+			setInterval(function() {
+			  var random = Math.round(Math.random() * 10)
+			  var values = updatingChart.text().split(",")
+			  values.shift()
+			  values.push(random)
+
+			  updatingChart
+			    .text(values.join(","))
+			    .change()
+			}, 1000)
+		})
+			$.fn.peity.defaults.line = {
+			  delimiter: ",",
+			  fill: "transparent",
+			  height: 16,
+			  max: null,
+			  min: 0,
+			  stroke: "#ff6633",
+			  strokeWidth: 2,
+			  width: 32
+			}
+
+			// qTip tooltips
+		$('.have_tooltip').each(function() {
+			$(this).qtip({
+				content: {
+				text: $(this).find('.tooltip-content')
+				},
+				style: {
+			        classes: 'qtip-bootstrap qtip-round'
+			    },
+				position: {
+				target: 'mouse', // Track the mouse as the positioning target
+				adjust: { x: 5, y: 5 } // Offset it slightly from under the mouse
+				},
+			});
+		});
+
+
+		});	
+	</script>
+</head>
+<body cz-shortcut-listen="true">
+	<div id="wrap">
+		<div id="container">
+			<div id="header">
+				<!-- main nav horiz -->
+				<nav id="main_nav_horiz">
+					<a class="nav_link home" href="http://taskmate.ru/ui/index.html" title=""></a>
+				</nav>
+				<!-- / main nav horiz -->
+				 <nav id="main_nav_horiz_text">
+					<a class="nav_link_text tasks active" href="http://taskmate.ru/ui/tasks.html" title="">Задания</a>
+					<a class="nav_link_text company" href="http://taskmate.ru/ui/company-addresses.html" title="">Компания</a>
+					<a class="nav_link_text finances" href="http://taskmate.ru/ui/balance.html" title="">Финансы</a>
+				</nav>
+				<a class="user_help" href="" title="" alt=""></a>
+				<div class="user_block">
+					<div class="user_avatar">
+						<img src="static/images/nikita_70.png" alt="" title="">
+					</div>
+					<div class="user_name">
+						<a href="http://taskmate.ru/ui/user-settings.html">Никита Креора <span class="caret"></span></a>
+					</div>
+				</div>
+				<div class="info_for_user">
+					<a href="http://taskmate.ru/ui/stats.html" title="Статистика"> 118 901,83 <span class="rub">P</span>&nbsp;&nbsp;&nbsp;<span class="updating-chart line" style="display: none;">4,1,7,3,8,5,10</span><svg class="peity" height="10" width="60"><polygon fill="transparent" points="0 9 0 5.8 10 8.2 20 3.4000000000000004 30 6.6 40 2.5999999999999996 50 5 60 1 60 9"></polygon><polyline fill="none" points="0 5.8 10 8.2 20 3.4000000000000004 30 6.6 40 2.5999999999999996 50 5 60 1" stroke="#ff6633" stroke-width="2" stroke-linecap="square"></polyline></svg></a>
+				</div>
+			</div>
+				</div>
+			</div>
+			<!-- / left_section -->
+				<div id="page-wrap">
+				<div class="page-container">
+						<div class="page-content">
+						<h1 class="submenu-title">Задания</h1>
+						<div class="submenu_horiz">
+							<button class="btn btn-wow btn-task-create">Создать задание</button>
+							<a href="#" class="item active">Новые</a>
+							<a href="#" class="item">В работе</a>
+							<a href="#" class="item">Ждут подтверждения</a>
+							<a href="#" class="item">Закрыто</a>
+							<a href="#" class="item">Черновики</a>
+						</div>
+						<!-- filter -->
+						<div class="row">
+							<div class="col-xs-4">
+								<input type="text" class="form-control" placeholder="Фильтровать по слову">
+							</div>
+							<div class="col-xs-6">
+								<label class="checkbox-inline">
+									<input type="checkbox" id="inlineCheckbox1" value="option1"> Персональные
+								</label>
+								<label class="checkbox-inline">
+									<input type="checkbox" id="inlineCheckbox1" value="option1"> Ночные
+								</label>
+								<label class="checkbox-inline">
+									<input type="checkbox" id="inlineCheckbox1" value="option1"> Срочные
+								</label>
+							</div>
+							<div class="col-xs-2">
+								<select class="form-control">
+									<option>Все авторы</option>
+									<option>Никита Креора</option>
+								</select>
+							</div>
+						</div>
+						<!-- / filter -->
+						<!-- task teaser -->
+						<div class="page-teaser">
+							<table class="page-table">
+								<thead>
+									<tr>
+										<th class="th-checkbox">&nbsp;</th>
+										<!-- <th class="th-status">Статус</th> -->
+										<th class="th-id">ID</th>
+										<!--<th class="th-icons">&nbsp;</th>
+										<th class="th-icons">&nbsp;</th>-->
+										<th class="th-name">Название</th>
+										<th class="th-city active">Город <span class="caret"></span></th>
+										<th class="th-deadline">Выполнить до</th>
+										<th class="th-price">Сумма</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="td-checkbox">&nbsp;</td>
+										<!-- <td class="td-status"><span class="task-status new"></span></td> -->
+										<td class="td-id">12564</td>
+										<!-- <td class="td-icons" colspan="2"><span class="task-icon nightworks"></span></td>-->
+										<td class="td-name have_tooltip" data-hasqtip="0" aria-describedby="qtip-0">
+											<a href="http://taskmate.ru/ui/task_view.html">Подключение провода от клеммной коробки пожарной сигнализации к расцепителю, проверить работоспособность</a>&nbsp;<span class="task-icon nightworks"></span>
+											<!-- tooltip -->
+											
+											<!-- / tooltip -->
+										</td>
+										<td class="td-city">Самара</td>
+										<td class="td-deadline">13 Августа</td>
+										<td class="td-price">10 021 <span class="rub">P</span></td>
+									</tr>
+									<tr>
+										<td class="td-checkbox">&nbsp;</td>
+										<!-- <td class="td-status"><span class="task-status inwork"></span></td> -->
+										<td class="td-id">12563</td>
+										<!-- <td class="td-icons" colspan="2"><span class="task-icon quickworks"></span></td>-->
+										<td class="td-name have_tooltip" data-hasqtip="1">
+											<a href="http://taskmate.ru/ui/task_view.html">Установить счетчик посетителей</a>
+											<!-- tooltip -->
+											<div class="tooltip-content">
+												<!-- <span class="tooltip-title">Реквизиты</span> -->
+												<div class="tooltip-label">
+													<p>Gone are days of design projects that have a concrete list of deliverables. As web design and development continues to evolve, static web pages don’t cut it anymore...</p>
+												</div>
+												<div class="tooltip-section last-comment">
+													<span class="tooltip-name">Никита Креора</span>
+													<p>На самом деле, О и 7, исходя из правил мат. логики, правило не будет нарушаться если за картой 4 негласная, а за картой П нечетное. Правило будет нарушаться, если на обратной стороны 7 - гласная, а на обратной стороне О - нечетное число.</p>
+												</div>
+											</div>
+											<!-- / tooltip -->
+										</td>
+										<td class="td-city">Санкт-Петербург</td>
+										<td class="td-deadline">7 Августа</td>
+										<td class="td-price">102 700, 82 <span class="rub">P</span></td>
+									</tr>
+									<tr>
+										<td class="td-checkbox">&nbsp;</td>
+										<!-- <td class="td-status"><span class="task-status w8ing"></span></td> -->
+										<td class="td-id">12559</td>
+										<!-- <td class="td-icons"><span class="task-icon personal"></span></td>
+										<td class="td-icons"><span class="task-icon nightworks"></span></td>-->
+										<td class="td-name have_tooltip" data-hasqtip="2"><a href="http://taskmate.ru/ui/task_view.html">Замена, регулировка замка двери входной группы</a><span class="task-icon personal"></span>
+											<!-- tooltip -->
+											<div class="tooltip-content">
+												<!-- <span class="tooltip-title">Реквизиты</span> -->
+												<div class="tooltip-label">
+													<p>Gone are days of design projects that have a concrete list of deliverables. As web design and development continues to evolve, static web pages don’t cut it anymore...</p>
+												</div>
+												<div class="tooltip-section last-comment">
+													<span class="tooltip-name">Кристина Девайн</span>
+													<p>Правило будет нарушаться, если на обратной стороны 7 - гласная, а на обратной стороне О - нечетное число.</p>
+												</div>
+											</div>
+											<!-- / tooltip -->
+										</td>
+										<td class="td-city">Екатеринбург</td>
+										<td class="td-deadline">11 Августа</td>
+										<td class="td-price">7 390 <span class="rub">P</span></td>
+									</tr>
+									<tr>
+										<td class="td-checkbox">&nbsp;</td>
+										<!-- <td class="td-status"><span class="task-status closed"></span></td> -->
+										<td class="td-id">12780</td>
+										<!--<td class="td-icons" colspan="2">&nbsp;</td>-->
+										<td class="td-name have_tooltip" data-hasqtip="3"><a href="http://taskmate.ru/ui/task_view.html">Замена ламп любого типа для внутреннего освещения и рекламы</a>
+											<!-- tooltip -->
+											<div class="tooltip-content">
+												<!-- <span class="tooltip-title">Реквизиты</span> -->
+												<div class="tooltip-label">
+													<p>Gone are days of design projects that have a concrete list of deliverables. As web design and development continues to evolve, static web pages don’t cut it anymore...</p>
+												</div>
+												<div class="tooltip-section last-comment note">
+													<span class="tooltip-name">Никита Креора</span>
+													<p>На самом деле, О и 7, исходя из правил мат. логики, правило не будет нарушаться если за картой 4 негласная, а за картой П нечетное.</p>
+												</div>
+											</div>
+											<!-- / tooltip -->
+										</td>
+										<td class="td-city">Новороссийск</td>
+										<td class="td-deadline">14 Августа</td>
+										<td class="td-price">1 018, 50 <span class="rub">P</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<!-- / task teaser -->
+						</div>
+				</div>
+			</div>
+
+			
+
+			<div id="content"></div>
+			<div id="footer"></div>
+		
+	
+
+<div id="qtip-0" class="qtip qtip-default qtip-bootstrap qtip-round qtip-pos-tl" tracking="true" role="alert" aria-live="polite" aria-atomic="false" aria-describedby="qtip-0-content" aria-hidden="true" data-qtip-id="0" style="z-index: 15001;"><div class="qtip-tip" style="border: 0px !important; width: 8px; height: 8px; line-height: 8px; left: 6px; top: -8px; background-color: transparent !important;"><canvas width="16" height="16" style="border: 0px !important; width: 8px; height: 8px; background-color: transparent !important;"></canvas></div><div class="qtip-content" id="qtip-0-content" aria-atomic="true"><div class="tooltip-content" style="display: block; visibility: visible;">
+												<!-- <span class="tooltip-title">Реквизиты</span> -->
+												<div class="tooltip-label">
+													<p>Gone are days of design projects that have a concrete list of deliverables. As web design and development continues to evolve, static web pages don’t cut it anymore...</p>
+												</div>
+												<div class="tooltip-section last-comment note">
+													<span class="tooltip-name">Никита Креора</span>
+													<p>На самом деле, О и 7, исходя из правил мат. логики, правило не будет нарушаться если за картой 4 негласная, а за картой П нечетное. Правило будет нарушаться, если на обратной стороны 7 - гласная, а на обратной стороне О - нечетное число.</p>
+												</div>
+											</div></div></div></body></html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://taskmate.ru/ui/balance.html -->
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>Concept. Finances: Balance</title>
+    <link href="static/styles/bootstrap.css" rel="stylesheet" type="text/css">
+    <!-- reset css <link href="css/reset.css" rel="stylesheet" type="text/css" /> -->
+    <link href="static/styles/wowworks.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="http://taskmate.ru/ui/favicon.ico" type="image/x-icon">
+
+    <script id="tinyhippos-injected">if (window.top.ripple) { window.top.ripple("bootstrap").inject(window, document); }</script>
+
+  </head>
+  <body cz-shortcut-listen="true">
+    <div id="wrap">
+      <div id="container">
+        <div id="header">
+          <!-- main nav horiz -->
+          <nav id="main_nav_horiz">
+            <a class="nav_link home" href="#/ui/index.html" title=""></a>
+          </nav>
+          <!-- / main nav horiz -->
+           <nav id="main_nav_horiz_text">
+            <a class="nav_link_text tasks" href="#/ui/tasks.html" title="">Задания</a>
+            <a class="nav_link_text company" href="#/ui/company-addresses.html" title="">Компания</a>
+            <a class="nav_link_text finances active" href="static/****/Concept. Finances_ Balance.html" title="">Финансы</a>
+          </nav>
+
+          <a class="user_help" href="" title="" alt=""></a>
+          <!-- <a class="user_settings" href="" title="" alt=""><a>-->
+          <div class="user_block">
+            <div class="user_avatar">
+              <img src="static/images/nikita_70.png" alt="" title="">
+            </div>
+            <div class="user_name">
+              <a href="#/ui/user-settings.html">Никита Креора <span class="caret"></span></a>
+              <!-- <span class="user_company_name">Wowworks</span>-->
+            </div>
+          </div>
+          <div class="info_for_user">
+            <a href="#/ui/stats.html" title="Статистика"> 118 901,83 <span class="rub">P</span>&nbsp;&nbsp;&nbsp;<span class="updating-chart line" style="display: none;">1,7,3,4,4,5,4</span><svg class="peity" height="10" width="60"><polygon fill="transparent" points="0 9 0 7.857142857142858 10 1 20 5.571428571428571 30 4.428571428571429 40 4.428571428571429 50 3.2857142857142856 60 4.428571428571429 60 9"></polygon><polyline fill="none" points="0 7.857142857142858 10 1 20 5.571428571428571 30 4.428571428571429 40 4.428571428571429 50 3.2857142857142856 60 4.428571428571429" stroke="#ff6633" stroke-width="2" stroke-linecap="square"></polyline></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- / left_section -->
+      <div id="page-wrap">
+      <div class="page-container">
+          <div class="page-content">
+          <h1 class="submenu-title">Финансы</h1>
+          <div class="submenu_horiz">
+            <!-- <button class="btn btn-wow btn-task-create">Пополнить баланс</button> -->
+            <a href="#/ui/balance.html#" class="item active">Баланс</a>
+            <a href="#/ui/balance.html#" class="item">История операций</a>
+            <a href="#/ui/balance.html#" class="item">Счета</a>
+            <a href="#/ui/balance.html#" class="item">Акты</a>
+            <a href="#/ui/balance.html#" class="item">Отчеты</a>
+            <a href="#/ui/stats.html" class="item">Статистика</a>
+            <a href="#/ui/balance.html#" class="item">Прайс-лист</a>
+          </div>
+
+          <!-- data-grid -->
+          <div data-grid>
+            <!-- filter -->
+            <form class="row" action="" data-grid-filters>
+              <div class="col-xs-3">
+                <input type="text" name="search" class="form-control" placeholder="Фильтровать по слову">
+              </div>
+              <div class="col-xs-7">
+                <label class="checkbox-inline">
+                  <input type="checkbox" name="low-balance-only" value="1"> Низкий баланс
+                </label>
+              </div>
+              <div class="col-xs-2">
+                <select name="department" class="form-control">
+                  <option value="">Все департаменты</option>
+                  <option value="Эксплуатация магазинов">Эксплуатация магазинов</option>
+                </select>
+              </div>
+            </form>
+            <!-- / filter -->
+            <!-- task teaser -->
+            <div class="page-teaser" data-grid-content>
+              <table class="page-table">
+                <thead data-grid-titles>
+                  <tr>
+                    <!--<th class="th-icons">&nbsp;</th>
+                    <th class="th-icons">&nbsp;</th>-->
+                    <th class="th-marker">&nbsp;</th>
+                    <th class="th-urname">Юрлицо</th>
+                    <th class="th-department active">Департамент <span class="caret"></span></th>
+                    <th class="th-deadline">Текущий баланс</th>
+                    <th class="th-reserved">Резерв</th>
+                    <th class="th-stats">Статистика</th>
+                    <th class="th-button">&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody data-grid-rows>
+                  <tr>
+                    <!-- <td class="td-icons" colspan="2"><span class="task-icon nightworks"></span></td>-->
+                    <td class="td-marker"></td>
+                    <td class="td-urname">Индивидуальный Предприниматель Савин Петр Васильевич</td>
+                    <td class="td-department">Эксплуатация магазинов</td>
+                    <td class="td-deadline">74 277, 28 <span class="rub">P</span></td>
+                    <td class="td-reserved">10 021 <span class="rub">P</span>
+                    </td>
+                    <td class="td-stats"><span class="line" style="display: none;">5,3,9,1,0</span><svg class="peity" height="16" width="32"><polygon fill="transparent" points="0 15 0 7.222222222222221 8 10.333333333333334 16 1 24 13.444444444444445 32 15 32 15"></polygon><polyline fill="none" points="0 7.222222222222221 8 10.333333333333334 16 1 24 13.444444444444445 32 15" stroke="#ff6633" stroke-width="2" stroke-linecap="square"></polyline></svg></td>
+                    <td class="td-button">
+                      <button class="btn btn-small-balance" data-toggle="modal" data-target="#modal--fillup-balance">Пополнить баланс</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <!-- <td class="td-icons" colspan="2"><span class="task-icon quickworks"></span></td>-->
+                    <td class="td-marker"></td>
+                    <td class="td-urname">ООО «Сочи МАР»</td>
+                    <td class="td-department">ИТ</td>
+                    <td class="td-deadline">102 700, 82 <span class="rub">P</span></td>
+                    <td class="td-reserved">13 499 <span class="rub">P</span></td>
+                    <td class="td-stats"><span class="line" style="display: none;">3,5,2,7,1</span><svg class="peity" height="16" width="32"><polygon fill="transparent" points="0 15 0 9 8 5 16 11 24 1 32 13 32 15"></polygon><polyline fill="none" points="0 9 8 5 16 11 24 1 32 13" stroke="#ff6633" stroke-width="2" stroke-linecap="square"></polyline></svg></td>
+                    <td class="td-button"><button class="btn btn-small-balance" data-toggle="modal" data-target="#modal--fillup-balance">Пополнить баланс</button></td>
+                  </tr>
+                  <tr class="low-balance">
+                    <!-- <td class="td-icons"><span class="task-icon personal"></span></td>
+                    <td class="td-icons"><span class="task-icon nightworks"></span></td>-->
+                    <td class="td-marker"></td>
+                    <td class="td-urname">ООО «КРИСТАЛЛ»</td>
+                    <td class="td-department">Эксплуатация магазинов</td>
+                    <td class="td-deadline">7 390 <span class="rub">P</span> <!--<span class="icon-warning"></span>--></td>
+                    <td class="td-reserved">3 201 <span class="rub">P</span></td>
+                    <td class="td-stats"><span class="line" style="display: none;">0,3,6,1,4</span><svg class="peity" height="16" width="32"><polygon fill="transparent" points="0 15 0 15 8 8 16 1 24 12.666666666666668 32 5.666666666666668 32 15"></polygon><polyline fill="none" points="0 15 8 8 16 1 24 12.666666666666668 32 5.666666666666668" stroke="#ff6633" stroke-width="2" stroke-linecap="square"></polyline></svg></td>
+                    <td class="td-button"><button class="btn btn-small-balance" data-toggle="modal" data-target="#modal--fillup-balance">Пополнить баланс</button></td>
+                  </tr>
+                  <tr class="low-balance">
+                    <!--<td class="td-icons" colspan="2">&nbsp;</td>-->
+                    <td class="td-marker"></td>
+                    <td class="td-urname">ООО «ТЕМП РОСТА»</td>
+                    <td class="td-department">ИТ</td>
+                    <td class="td-deadline">1 018, 50 <span class="rub">P</span> <!--<span class="icon-warning"></span>--></td>
+                    <td class="td-reserved">743, 90 <span class="rub">P</span></td>
+                    <td class="td-stats"><span class="line" style="display: none;">10,7,6,4,8</span><svg class="peity" height="16" width="32"><polygon fill="transparent" points="0 15 0 1 8 5.200000000000001 16 6.6 24 9.399999999999999 32 3.799999999999999 32 15"></polygon><polyline fill="none" points="0 1 8 5.200000000000001 16 6.6 24 9.399999999999999 32 3.799999999999999" stroke="#ff6633" stroke-width="2" stroke-linecap="square"></polyline></svg></td>
+                    <td class="td-button"><button class="btn btn-small-balance" data-toggle="modal" data-target="#modal--fillup-balance">Пополнить баланс</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- / task teaser -->
+        </div>
+        <!-- //data-grid -->
+      </div>
+    </div>
+
+    <div id="content"></div>
+    <div id="footer"></div>
+
+    <div id="modals">
+      <div class="modal fade" id="modal--fillup-balance">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Пополнить баланс</h4>
+            </div>
+            <div class="modal-body">
+              <input type="text" class="form-control" placeholder="Сумма">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-sm btn-primary">Пополнить</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="static/scripts/vendor/jquery-2.1.4.min.js"><\/script>')</script>
+    <!--<script src="static/scripts/vendor/lodash.min.js"></script>-->
+    <script src="static/scripts/plugins/bootstrap.min.js"></script>
+    <script src="static/scripts/plugins/jquery.peity.js"></script>
+    <script src="static/scripts/plugins/jquery.history.js"></script>
+    <script src="static/scripts/plugins/form-serialize.js"></script>
+    <script src="static/scripts/plugins/jquery-deparam.js"></script>
+    <script src="static/scripts/plugins/jquery.deserialize.js"></script>
+    <!--<script src="static/scripts/plugins/jquery.ba-bbq.js"></script>-->
+    <script src="static/scripts/plugins/jquery.ba-throttle-debounce.js"></script>
+    <script src="static/scripts/plugins/jquery.tabler.js"></script>
+    <script src="static/scripts/plugins/jquery.plugins-exists.js"></script>
+    <script src="static/scripts/js.js"></script>
+
+  </body>
+</html>
