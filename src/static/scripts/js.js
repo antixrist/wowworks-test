@@ -1,5 +1,22 @@
 (function (window, document, $, undefined) {$(function () {
 
+  //var $form = $('form[data-grid-filters]');
+  //var controlsSelectors = 'input:text, input[type="checkbox"], input[type="radio"], input[type="password"], textarea, select, input[type="hidden"]';
+  //
+  //var $inputs = $(controlsSelectors, $form);
+  //$form.on('change', controlsSelectors, function (e) {
+  //  var $control = $(this);
+  //
+  //  var serializedObject = $inputs.serializeObject();
+  //  var serializedObjectStr = $inputs.serializeObject({hash: false});
+  //
+  //  console.log('serializedObject:', serializedObject);
+  //  console.log('reverse:', $.param(serializedObject));
+  //  console.log('serializedObjectStr:', serializedObjectStr);
+  //  console.log('reverse == serializedObjectStr:', $.param(serializedObject) == serializedObjectStr);
+  //});
+
+
   var makeCharts = function () {};
   if ($.pluginsExists('peity')) {
     $.fn.peity.defaults.line = {
@@ -51,8 +68,9 @@
       selectors: {
         titles: '[data-grid-titles]',
         rows: '[data-grid-rows]',
-        filters: '[data-grid-filters]',
+        filters: '[data-grid-filter]',
       },
+
 
     });
   });

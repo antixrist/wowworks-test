@@ -1,20 +1,12 @@
 ;(function (window, document, $, undefined) {
 
-  /**
-   * @param {{}} [options]
-   * @this {jQuery}
-   * @returns {*}
-   */
-  $.fn.serializeObject = function (options) {
-    options = $.isPlainObject(options) ? options : {};
-
-    if (typeof serialize != 'undefined') {
-      return serialize(this.get(0), options);
-    }
-
-    return options.hash ? {} : '';
-  };
-
+  //var serialized = $form.serialize();
+  //var serializedObject = $form.serializeObject();
+  //
+  //console.log('serialized:', serialized);
+  //console.log('reverse:', $.deparam(serialized));
+  //console.log('serializedObject:', serializedObject);
+  //console.log('reverse:', $.param(serializedObject));
 
   var pluginName = 'tabler';
   var getEvent = function (eventName) {
@@ -29,7 +21,7 @@
     selectors: {
       titles: '[data-grid-titles]',
       rows: '[data-grid-rows]',
-      filters: '[data-grid-filters]',
+      filters: '[data-grid-filter]',
     },
 
     /** @return {Function} $.Deferred() */
@@ -70,13 +62,14 @@
     },
 
     init: function () {
-      if (!$.pluginsExists('deparam', 'deserialize', 'debounce')) {
+      if (!$.pluginsExists('deparam', 'deserialize'/*, 'debounce'*/)) {
         console && console.error([
           '[jQuery.tabler]',
           'Next plugins is required:',
           '- deparam [ https://github.com/AceMetrix/jquery-deparam ]',
-          '- deserialize [ https://github.com/maxatwork/jquery.deserialize ]',
-          '- throttle/debounce [ http://github.com/cowboy/jquery-throttle-debounce ]'
+          '- serialize [ https://github.com/antixrist/form-serialize ]',
+          '- deserialize [ https://github.com/antixrist/jquery.deserialize ]',
+          //'- throttle/debounce [ http://github.com/cowboy/jquery-throttle-debounce ]'
         ].join('\n'));
         return;
       }
@@ -103,29 +96,28 @@
       this.$filters = this.$(this.options.selectors.filters);
     },
 
+    updateQueryString: function () {
+      this.setQueryStringData(this._getFormValues(this.$filters));
+    },
+
     bindEvents: function () {
       var self = this;
       var isTriggerStateChange = false;
 
-      this.$filters.on('submit', function (e) {
-        e.preventDefault();
+      var selectorsForKeyup = 'input:text, input[type="password"], textarea, input[type="hidden"]';
+      var controlsSelectors = 'input:text, input[type="checkbox"], input[type="radio"], input[type="password"], textarea, select, input[type="hidden"]';
+
+      this.$el.on(getEvent('change'), controlsSelectors, function (e) {
         isTriggerStateChange = true;
-        self.setQueryStringData(self._getFormValues(self.$filters));
+        self.updateQueryString();
       });
 
-      this.$filters.on(getEvent('change'), 'input:text, textarea, select', function (e) {
-        self.$filters.trigger('submit');
-      });
-
-      this.$filters.on(getEvent('keyup'), 'input:text, textarea, select', $.debounce(200, function (e) {
-        self.$filters.trigger('submit');
+      this.$el.on(getEvent('keyup'), selectorsForKeyup, $.debounce(200, function (e) {
+        isTriggerStateChange = true;
+        self.updateQueryString();
       }));
 
-      this.$filters.on(getEvent('change'), ':checkbox, :radio', function (e) {
-        self.$filters.trigger('submit');
-      });
-
-      History.Adapter.bind(window, 'statechange', function () { // Note: We are using statechange instead of popstate
+      History.Adapter.bind(window, 'statechange', function () {
         var queryStringData = self.getQueryStringData();
         if (!isTriggerStateChange) {
           self._setFormValues(self.$filters, self.getQueryStringData(), true);

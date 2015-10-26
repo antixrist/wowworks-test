@@ -66,17 +66,17 @@
           <!-- data-grid -->
           <div data-grid>
             <!-- filter -->
-            <form class="row" action="" data-grid-filters>
+            <form class="row" action="">
               <div class="col-xs-3">
-                <input type="text" name="search" class="form-control" placeholder="Фильтровать по слову">
+                <input type="text" name="search" class="form-control" placeholder="Фильтровать по слову" data-grid-filter>
               </div>
               <div class="col-xs-7">
                 <label class="checkbox-inline">
-                  <input type="checkbox" name="low-balance-only" value="1"> Низкий баланс
+                  <input type="checkbox" name="low-balance-only" value="1" data-grid-filter> Низкий баланс
                 </label>
               </div>
               <div class="col-xs-2">
-                <select name="department" class="form-control">
+                <select name="department" class="form-control" data-grid-filter>
                   <option value="">Все департаменты</option>
                   <option value="Эксплуатация магазинов">Эксплуатация магазинов</option>
                 </select>
